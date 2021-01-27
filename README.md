@@ -18,7 +18,7 @@ pip install scrapy-util
 ```python
 
 # 设置收集运行日志的路径,会以post方式提交json数据
-STATS_COLLECTION_URL = "http://127.0.0.1:5001/api/collection"
+STATS_COLLECTION_URL = "http://127.0.0.1:5001/api/statsCollection/addItem"
 
 # 启用数据收集扩展
 EXTENSIONS = {
