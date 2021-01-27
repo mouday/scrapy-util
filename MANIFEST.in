@@ -1,0 +1,13 @@
+graft scrapy_util
+include README.md
+include requirements.txt
+prune test
+global-exclude .DS_Store
+global-exclude *.pyc
+global-exclude *.log
+global-exclude *.db
+global-exclude *.db-shm
+global-exclude *.db-wal
+global-exclude *.sqlite
+global-exclude .env
+global-exclude .gitignore
