@@ -2,6 +2,15 @@
 
 基于scrapy 的一些扩展
 
+pypi: [https://pypi.org/project/scrapy-util](https://pypi.org/project/scrapy-util)
+
+github: [https://github.com/mouday/scrapy-util](https://github.com/mouday/scrapy-util)
+
+
+```
+pip install scrapy-util
+```
+
 ## 启用数据收集功能
 
 此功能配合 [spider-admin-pro](https://github.com/mouday/spider-admin-pro) 使用
