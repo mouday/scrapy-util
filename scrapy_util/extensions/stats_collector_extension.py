@@ -38,6 +38,7 @@ class StatsCollectorExtension(object):
         # 获取数据
         start_time = stats.get("start_time")
         finish_time = stats.get("finish_time")
+        duration = (finish_time - start_time).seconds
 
         # 保存收集到的信息
         result = ScrapydUtil.parse_log_file(self.log_file)
@@ -50,6 +51,7 @@ class StatsCollectorExtension(object):
             "item_dropped_count": stats.get("item_dropped_count", 0),
             "start_time": start_time.strftime(self.DATETIME_FORMAT),
             "finish_time": finish_time.strftime(self.DATETIME_FORMAT),
+            "duration": duration,
             "finish_reason": stats.get("finish_reason"),
             "log_error_count": stats.get("log_count/ERROR", 0),
         }

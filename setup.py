@@ -12,9 +12,10 @@ from setuptools import setup, find_packages
 ## 本地测试
 安装测试
 python setup.py install 
+python setup.py develop 
 
 卸载
-pip uninstall spideradmin -y
+pip uninstall scrapy-util -y
 
 
 ## 打包上传
@@ -50,7 +51,7 @@ https://packaging.python.org/guides/making-a-pypi-friendly-readme/
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
 
-version = '0.0.8'
+version = '0.0.9'
 
 with io.open("README.md", 'r', encoding='utf-8') as f:
     long_description = f.read()
