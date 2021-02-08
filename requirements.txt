@@ -1,2 +1,6 @@
+six
+md5util
+pymongo
 requests
 scrapy
+mo-cache

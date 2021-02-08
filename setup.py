@@ -2,17 +2,20 @@
 
 # @Date    : 2019-06-26
 # @Author  : Peng Shiyu
-
+import glob
 import io
 import os
 
+import six
 from setuptools import setup, find_packages
 
 """
 ## 本地测试
 安装测试
 python setup.py install 
-python setup.py develop 
+python setup.py develop
+
+python setup.py develop --uninstall 
 
 卸载
 pip uninstall scrapy-util -y
@@ -49,22 +52,28 @@ https://packaging.python.org/guides/making-a-pypi-friendly-readme/
 
 """
 
-base_dir = os.path.dirname(os.path.abspath(__file__))
+# 版本号
+version_file = glob.glob("*/version.py", recursive=True)[0]
 
-version = '0.0.9'
+with io.open(version_file, 'rb') as f:
+    version_var = {}
+    six.exec_(f.read(), version_var)
+    VERSION = version_var['VERSION']
 
+# 说明
 with io.open("README.md", 'r', encoding='utf-8') as f:
     long_description = f.read()
 
+# 依赖
 with io.open("requirements.txt", 'r') as f:
-    install_requires = f.read().split(os.sep)
+    install_requires = f.read().split(os.linesep)
 
 setup(
     name='scrapy-util',
-    version=version,
+    version=VERSION,
     description="scrapy util",
 
-    keywords='spider admin',
+    keywords='spider,admin',
     author='Peng Shiyu',
     author_email='pengshiyuyx@gmail.com',
     license='MIT',

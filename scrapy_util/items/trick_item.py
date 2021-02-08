@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-import scrapy
+from scrapy import Item
 
 
-class TrickItem(scrapy.Item):
+class TrickItem(Item):
     """虚拟的item, 仅做数据统计使用"""
     pass

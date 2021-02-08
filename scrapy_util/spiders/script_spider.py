@@ -7,8 +7,6 @@ from scrapy_util.items.trick_item import TrickItem
 
 class ScriptSpider(Spider):
     """继承该类，用于仅做脚本执行，Request 不请求网络"""
-    name = 'base_script'
-
     start_urls = ['https://www.baidu.com/']
 
     custom_settings = {
