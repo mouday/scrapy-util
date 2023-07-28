@@ -17,7 +17,9 @@ pip install scrapy-util
 
 ```python
 
-# 设置收集运行日志的路径,会以post方式提交json数据
+# 设置收集运行日志的路径,会以post方式向 spider-admin-pro 提交json数据
+# 注意：此处配置仅为示例，请设置为 spider-admin-pro 的真实路径
+# 假设，我们的 spider-admin-pro 运行在http://127.0.0.1:5001
 STATS_COLLECTION_URL = "http://127.0.0.1:5001/api/statsCollection/addItem"
 
 # 启用数据收集扩展
