@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import os
 
 class ScrapydUtil(object):
 
@@ -12,8 +12,8 @@ class ScrapydUtil(object):
         :return:
         """
         if log_file:
-            _, project, spider, filename = log_file.split('/')
-            job_id, _ = filename.split('.')
+            _, project, spider, filename = log_file.split(os.sep)
+            job_id, _ = os.path.spiltext(filename)
 
         else:
             project = ''

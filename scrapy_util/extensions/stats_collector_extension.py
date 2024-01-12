@@ -7,8 +7,7 @@ import requests
 from scrapy import signals
 
 from scrapy_util.logger import logger
-from scrapy_util.utils import ScrapydUtil
-
+import os
 
 class StatsCollectorExtension(object):
     """
@@ -39,13 +38,10 @@ class StatsCollectorExtension(object):
         start_time = stats.get("start_time")
         finish_time = stats.get("finish_time")
         duration = (finish_time - start_time).seconds
-
         # 保存收集到的信息
-        result = ScrapydUtil.parse_log_file(self.log_file)
-
         item = {
-            "job_id": result.get('job_id', ''),
-            "project": result.get('project', ''),
+            "job_id": os.environ.get("SCRAPYD_JOB",""),
+            "project": os.environ.get("SCRAPY_PROJECT",""),
             "spider": spider.name,
             "item_scraped_count": stats.get("item_scraped_count", 0),
             "item_dropped_count": stats.get("item_dropped_count", 0),
