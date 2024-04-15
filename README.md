@@ -7,8 +7,8 @@ pypi: [https://pypi.org/project/scrapy-util](https://pypi.org/project/scrapy-uti
 github: [https://github.com/mouday/scrapy-util](https://github.com/mouday/scrapy-util)
 
 
-```
-pip install scrapy-util
+```bash
+pip install six scrapy-util
 ```
 
 ## 启用数据收集功能
@@ -148,5 +148,24 @@ if __name__ == '__main__':
     cmdline.execute('scrapy crawl baidu_mongo'.split())
 
 ```
-
+ 
 如果需要做微调，可以继承`MongoPipeline` 重写函数
+
+
+## 工具方法
+
+运行爬虫工具方法
+
+```python
+import scrapy
+from scrapy_util import spider_util
+
+class BaiduSpider(scrapy.Spider):
+    name = 'baidu_spider'
+
+
+if __name__ == '__main__':
+    # cmdline.execute('scrapy crawl baidu_spider'.split()
+    spider_util.run_spider(BaiduSpider)
+```
+
