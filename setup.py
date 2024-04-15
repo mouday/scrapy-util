@@ -6,7 +6,6 @@ import glob
 import io
 import os
 
-import six
 from setuptools import setup, find_packages
 
 """
@@ -57,7 +56,7 @@ version_file = glob.glob("*/version.py", recursive=True)[0]
 
 with io.open(version_file, 'rb') as f:
     version_var = {}
-    six.exec_(f.read(), version_var)
+    exec(f.read(), version_var)
     VERSION = version_var['VERSION']
 
 # 说明
